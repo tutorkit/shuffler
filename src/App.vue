@@ -1,54 +1,49 @@
 <template>
   <div id="app">
-    <img src="http://vuejs.org/images/logo.png">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitter Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vueify" target="_blank">vueify</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">{{appName}}</h1>
+        <Source />
+      </div>
+      <div class="container">
+        <Shuffler />
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
+import Source from './components/Source.vue'
+import Shuffler from './components/Shuffler.vue'
+
 export default {
+  components: {
+    Source,
+    Shuffler
+  },
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      appName: 'TutorKit',
+      msg: 'My first website with <strong>Bulma</strong>!'
     }
   }
 }
 </script>
 
-<style scoped>
+<style lang="scss">
+  @import "../node_modules/bulma/bulma.sass";
+</style>
+
+<style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  font-family: 'Noto Sans CJK KR', 'NanumGothic', Helvetica, Arial, sans-serif;
   color: #2c3e50;
-  margin-top: 60px;
+  width: 720px;
 }
+</style>
 
-img {
-  width: 200px;
-  height: 200px;
-}
-
-h1, h2 {
-  font-weight: normal;
-}
-
+<style scoped>
 ul {
   list-style-type: none;
   padding: 0;
